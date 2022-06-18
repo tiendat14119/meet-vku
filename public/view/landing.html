@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZRF9TVSZ0J"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZRF9TVSZ0J');
+        </script>
+
+        <!-- Title and Icon -->
+
+        <title>NC SFU, Gọi video miễn phí, nhắn tin và chia sẻ màn hình</title>
+        <link rel="shortcut icon" href="../images/logo.svg" />
+        <link rel="apple-touch-icon" href="../images/logo.svg" />
+
+        <!-- Meta Information -->
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta
+            name="description"
+            content="
+            NC SFU được hỗ trợ bởi WebRTC và trung gian cảm ứng, các cuộc gọi điện video, nhắn tin và chia sẻ màn hình nhanh chóng trong thời gian thực trong trình duyệt."
+        />
+        <meta
+            name="keywords"
+            content="webrtc, mediasoup, mediasoup-client, self hosted, voip, sip, real-time communications, chat, messaging, meet, webrtc stun, webrtc turn, video meeting, video chat, video conference, multi video chat, multi video conference, peer to peer, p2p, rtc, alternative to, zoom, microsoft teams, google meet, jitsi, meeting"
+        />
+
+        <!-- https://ogp.me -->
+
+        <meta property="og:type" content="app-webrtc" />
+        <meta property="og:site_name" content="NC SFU" />
+        <meta property="og:title" content="Nhấp vào liên kết để thực hiện cuộc gọi." />
+        <meta
+            property="og:description"
+            content="Tính năng gọi điện qua NC SFU cung cấp các cuộc gọi video, nhắn tin và chia sẻ màn hình trong thời gian thực."
+        />
+        <meta property="og:image" content="https://sfu.mirotalk.org/images/mirotalksfu.png" />
+
+        <!-- StyleSheet -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" />
+        <link rel="stylesheet" href="../css/landing.css" />
+
+        <!-- Js scripts -->
+
+        <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    </head>
+    <body class="is-boxed has-animations">
+        <div class="body-wrap">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-header-inner">
+                        <div class="brand header-brand">
+                            <h1 class="m-0">
+                                <a href="/">
+                                    <img class="header-logo-image" src="../images/logo.svg" alt="mirotalk-logo" />
+                                </a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-inner">
+                            <div class="hero-copy">
+                                <h1 class="hero-title mt-0">
+                                    NC SFU<br />Cuộc gọi video thời gian thực dựa trên trình duyệt miễn phí.<br />
+                                    Đơn giản, An toàn, Nhanh chóng.
+                                </h1>
+                                <p class="hero-paragraph">
+                                    Bắt đầu cuộc gọi điện video tiếp theo của bạn bằng một cú nhấp chuột. Không có tải xuống, trình cắm hoặc đăng nhập
+                                    yêu cầu. Chỉ cần bắt đầu nói chuyện, nhắn tin và chia sẻ màn hình của bạn.
+                                </p>
+                            </div>
+                            <div class="hero-figure anime-element">
+                                <svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                                    <rect width="528" height="396" style="fill: transparent" />
+                                </svg>
+                                <div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                                <div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                                <div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+                                <div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                                <div class="hero-figure-box hero-figure-box-05"></div>
+                                <div class="hero-figure-box hero-figure-box-06"></div>
+                                <div class="hero-figure-box hero-figure-box-07"></div>
+                                <div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                                <div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                                <div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="cta section">
+                    <div class="container">
+                        <div class="cta-inner section-inner">
+                            <h3 class="section-title mt-0">
+                                Chọn một tên phòng.<br />
+                                
+                            </h3>
+                            <div>
+                                <div class="mb-24">
+                                    <label for="roomName"></label>
+                                    <div class="form-group-desktop">
+                                        <input class="form-input" type="text" id="roomName" value="" />
+                                        <button
+                                            id="joinRoomButton"
+                                            class="button button-primary pulse"
+                                            onclick="{window.location.href = '/join/' + document.getElementById('roomName').value}"
+                                        >
+                                            Join to room
+                                        </button>
+                                        <script>
+                                            document.getElementById('roomName').onkeyup = (e) => {
+                                                if (e.keyCode === 13) {
+                                                    e.preventDefault();
+                                                    document.getElementById('joinRoomButton').click();
+                                                }
+                                            };
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="features section">
+                    <div class="container-sm">
+                        <div class="pricing-inner section-inner">
+                            <div class="pricing-header text-center">
+                                <h2 class="section-title mt-0">
+                                    Không giới hạn số lượng phòng hội nghị và người dùng mà không giới hạn thời gian cuộc gọi!
+                                </h2>
+                                <p class="section-paragraph mb-0">
+                                    NC với Máy chủ tích hợp SFU. Chúng tôi đã thiết kế một nền tảng với video tối đa
+                                    chất lượng độ trễ thấp nhất giúp cuộc gọi của bạn trở nên rõ ràng. Tương thích với Máy tính để bàn
+                                    và Thiết bị di động!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="features-inner section-inner has-bottom-divider">
+                            <div class="features-wrap">
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-01.svg" alt="mirotalksfu-screen" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Screen Sharing</h4>
+                                        <p class="text-sm mb-0">
+                                            Chia sẻ màn hình, cửa sổ ứng dụng, trình bày tài liệu, trang trình bày của bạn.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-02.svg" alt="mirotalksfu-webcam" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">WebCam Streaming</h4>
+                                        <p class="text-sm mb-0">
+                                            Bật webcam cho phép người tham gia kết nối sâu hơn vớibạn. Độ phân giải lên đến 4k.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-03.svg" alt="mirotalksfu-audio" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Audio Streaming</h4>
+                                        <p class="text-sm mb-0">
+                                            Loại bỏ tiếng vang và khử tiếng giúp âm thanh của bạn trở nên rõ ràng.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-04.svg" alt="mirotalksfu-chat" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Chat</h4>
+                                        <p class="text-sm mb-0">
+                                            Trò chuyện với những người khác trong cuộc họp bằng bộ chọn biểu tượng cảm xúc được tích hợp để cho bạn thấy cảm xúc của mình.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-05.svg" alt="mirotalksfu-recording" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Recording meeting</h4>
+                                        <p class="text-sm mb-0">
+                                            
+Ghi lại màn hình, video và âm thanh của bạn trên Blobs trình duyệt của bạn. Lưu nó để sử dụng
+nó trong tương lai hoặc để chia sẻ với những người khác.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-06.svg" alt="mirotalksfu-whiteboard" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Collaborative Whiteboard</h4>
+                                        <p class="text-sm mb-0">
+                                            
+Bảng tương tác nâng cao để vẽ và giải thích các khái niệm của bạn về
+những người tham gia khác trong cuộc họp.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-01.svg" alt="mirotalksfu-filesharing" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">File Sharing</h4>
+                                        <p class="text-sm mb-0">
+                                           
+Chia sẻ bất kỳ loại tệp nào cho tất cả những người tham gia cuộc họp.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-02.svg" alt="mirotalksfu-privacy" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Total privacy</h4>
+                                        <p class="text-sm mb-0">
+                                            Dữ liệu nằm giữa bạn và những người tham gia của bạn. NC SFU không thu thập hoặc
+                                            chia sẻ thông tin cá nhân.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="feature text-center is-revealing">
+                                    <div class="feature-inner">
+                                        <div class="feature-icon">
+                                            <img src="../images/feature-icon-03.svg" alt="mirotalksfu-security" />
+                                        </div>
+                                        <h4 class="feature-title mt-24">Maximum security</h4>
+                                        <p class="text-sm mb-0">
+                                            Nhờ có WebRTC, tất cả các luồng phương tiện được mã hóa bằng cách sử dụng Thời gian thực bảo mật
+                                            Giao thức truyền tải (SRTP).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+            </main>
+
+            <br />
+            <br />
+
+            <section class="cta section">
+                <div class="container">
+                    <h2 style="text-align: center">
+                        Hãy thử một cách gọi dễ dàng hơn, an toàn hơn.</h2>
+                    <div style="text-align: center">
+                        <a class="button button-primary button-wide-mobile pulse" href="/newroom">
+                            Thử ngay bây giờ</a>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="site-footer-inner">
+                        <div class="brand footer-brand">
+                            <a href="/">
+                                <img class="header-logo-image" src="../images/logo.svg" alt="Logo" />
+                            </a>
+                        </div>
+                        <ul class="footer-links list-reset">
+                            <li>
+                                <a href="/privacy">Privacy Policy</a>
+                            </li>
+                            <li>
+                                Contact:
+                                <a target="_blank" href="https://www.facebook.com/cuonggdev/"
+                                    >Ngọc Cường</a
+                                >
+                            </li>
+                        </ul>
+                        <ul class="footer-social-links list-reset">
+                            <li>
+                                <a target="_blank" href="https://github.com/CuongTech47">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                        <title>GitHub</title>
+                                        <path
+                                            d="M7.95 0C3.578 0 0 3.578 0 7.95c0 3.479 2.286 6.46 5.466 7.553.397.1.497-.199.497-.397v-1.392c-2.187.497-2.683-.994-2.683-.994-.398-.894-.895-1.192-.895-1.192-.696-.497.1-.497.1-.497.795.1 1.192.795 1.192.795.696 1.292 1.888.894 2.286.696.1-.497.298-.895.497-1.093-1.79-.2-3.578-.895-3.578-3.976 0-.894.298-1.59.795-2.087-.1-.198-.397-.993.1-2.086 0 0 .695-.2 2.186.795a6.408 6.408 0 0 1 1.987-.299c.696 0 1.392.1 1.988.299 1.49-.994 2.186-.795 2.186-.795.398 1.093.199 1.888.1 2.086.496.597.795 1.292.795 2.087 0 3.081-1.889 3.677-3.677 3.876.298.398.596.895.596 1.59v2.187c0 .198.1.496.596.397C13.714 14.41 16 11.43 16 7.95 15.9 3.578 12.323 0 7.95 0z"
+                                            fill="#0270D7"
+                                        />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://www.facebook.com/cuonggdev/">
+                                    <span class="screen-reader-text">Facebook</span>
+                                    <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z"
+                                            fill="#0270D7"
+                                        />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-copyright">&copy; NC MiroTalk SFU, all rights reserved</div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="../js/landing.js"></script>
+        <script src="../js/newroom.js"></script>
+    </body>
+</html>
